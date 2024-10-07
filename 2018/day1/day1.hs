@@ -1,7 +1,7 @@
 main :: IO ()
 main = do
   contents <- readFile "input.txt"
-  let intList = map read (lines contents) :: [Integer]
+  let intList = map (read . filter (/='+')) (lines contents) :: [Integer]
   let result = solve 0 intList
   print result
 
